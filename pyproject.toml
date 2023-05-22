@@ -1,0 +1,28 @@
+[project]
+name = "setup-py-proxy"
+version = "0.1.0"
+description = "PoC to hijack setuptools.setup() calls"
+authors = [
+    { name = "Chris Pryer", email = "cnpryer@gmail.com" }
+]
+dependencies = ["setuptools~=67.8.0"]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+setup-proxy = "setup_py_proxy:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+[tool.rye.scripts]
+fmt = { chain = ["fmt:black", "fmt:ruff"] }
+"fmt:black" = "black ."
+"fmt:ruff" = "ruff check . --select I --fix"
+[tool.hatch.metadata]
+allow-direct-references = true
+[tool.black]
+line-length = 79
