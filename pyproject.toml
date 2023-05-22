@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">= 3.8"
 
 [project.scripts]
-setup-proxy = "setup_py_proxy:run"
+setup-proxy-json = "setup_py_proxy:run"
 
 [build-system]
 requires = ["hatchling"]
